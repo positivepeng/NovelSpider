@@ -40,9 +40,9 @@ class SeveralPages_Spider(RedisCrawlSpider):
         work_process_value2 = response.xpath("/html/body/table[1]/tr/td[3]/div[2]/ul/li[5]/span[@itemprop='updataStatus'\
                              ]/font/text()").extract_first()
         if work_process_value1 is None:
-            item['work_progress'] = work_process_value1
-        else:
             item['work_progress'] = work_process_value2
+        else:
+            item['work_progress'] = work_process_value1
 
         # 全文字数
         item["work_total_words"] = response.xpath("/html/body/table[1]/tr/td[3]/div[2]/ul/li[6]/span[2]/text()").extract()[0][:-1]
