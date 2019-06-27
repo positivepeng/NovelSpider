@@ -19,7 +19,7 @@ class JinjiangPipeline(object):
             for k,v in item.items():
                 print(k+":"+v+" "+str(len(v)))
             try:
-                with open('PageDetailSpiderOutput.txt', 'a') as fp:
+                with open('SeveralPageSpiderOutput.csv', 'a') as fp:
                     fp.write(",".join(list(item.values()))+'\n')
             except:
                 print("failed!")

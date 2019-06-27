@@ -46,3 +46,6 @@ class SeveralPagesItem(scrapy.Item):
     # 时间相关
     latest_update_date = scrapy.Field()
     earliest_update_date = scrapy.Field()
+
+    # 标签
+    tags = scrapy.Field()

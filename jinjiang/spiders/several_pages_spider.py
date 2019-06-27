@@ -84,7 +84,11 @@ class SeveralPages_Spider(RedisCrawlSpider):
         # 作品首次发表时间
         item["earliest_update_date"] = getUpdateDate(current_url+"&chapterid=1")
 
+        # 标签
+        item["tags"] = " ".join(response.xpath("/html/body/table[1]/tr/td[1]/div[3]/span/a/text()").extract())
+
         # 若值为空则将字符串置为'None'
+
         for k in item.keys():
             if item[k] is None or len(item[k].strip()) == 0:
                 item[k] = "None"
