@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
-    <file url="file://$PROJECT_DIR$/OnePageSpiderOutput.txt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/PageDetailSpiderOutput.txt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/PageDetailSpiderOutput.txt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/PageDetailSpiderOutput.txt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/my_jinjiang999.csv" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/my_shiyishi2.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/SeveralPageSpiderOutput.csv" charset="GBK" />
   </component>
 </project>
