@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 import scrapy
+
 from scrapy_redis.spiders import RedisCrawlSpider
 from jinjiang.items import SeveralPagesItem
 from jinjiang.spiders.helper import getUpdateDate
+from jinjiang.spiders.helper import createLinks
 
 class SeveralPages_Spider(RedisCrawlSpider):
     name = 'SeveralPages_Spider'  # 爬虫名称
     allowed_domains = ['jjwxc.net']
     redis_key = "Jinjiang:start_urls"
+
+    def __init__(self):
+        createLinks(3886659, 3886670)
+
 
     def parse(self, response):
         current_url = response.url
@@ -88,7 +94,6 @@ class SeveralPages_Spider(RedisCrawlSpider):
         item["tags"] = " ".join(response.xpath("/html/body/table[1]/tr/td[1]/div[3]/span/a/text()").extract())
 
         # 若值为空则将字符串置为'None'
-
         for k in item.keys():
             if item[k] is None or len(item[k].strip()) == 0:
                 item[k] = "None"
