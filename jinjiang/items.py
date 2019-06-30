@@ -7,7 +7,6 @@
 
 import scrapy
 
-
 class OnePageItem(scrapy.Item):
     author_id = scrapy.Field()
     update_state = scrapy.Field()
@@ -49,3 +48,8 @@ class SeveralPagesItem(scrapy.Item):
 
     # 标签
     tags = scrapy.Field()
+
+
+class DetailPageItem(scrapy.Item):
+    image_url = scrapy.Field
+

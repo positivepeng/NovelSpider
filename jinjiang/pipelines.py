@@ -6,7 +6,6 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import redis
 from jinjiang.items import *
-from collections import OrderedDict
 
 
 class JinjiangPipeline(object):
