@@ -366,13 +366,14 @@ $(function() {
 
   //主题推荐           主角
   var renderBookSubject = function(index) {
-    var leadingRoles = data["bookdetail"]["leading_roles"].split(" ");
+    var leadingRoles = data["bookdetail"]["leading_roles"];//(/(?:\s+|，+)/)
+    console.log(leadingRoles)
     var len = leadingRoles.length;
     var html = "";
-
-    for (let i = 0; i < len; i++) {
-      html += "<li>" + leadingRoles[i] + "</li>";
-    }
+    html += "<li>" + leadingRoles + "</li>";
+    // for (let i = 0; i < len; i++) {
+    //
+    // }
 
     $(".middle_con .middle_top .con_right .themaWords").html(html);
   };
