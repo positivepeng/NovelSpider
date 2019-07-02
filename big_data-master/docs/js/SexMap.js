@@ -24,10 +24,13 @@ var mydata = [
 ];
 
 var option = {
-  backgroundColor: '#c4dee4',
   title: {
     text: '同性恋读者城市分布图',
-    x:'center'
+    x:'center',
+    textStyle: {
+	        	fontWeight: 'normal',  
+	        	color: '#F0F8FF'
+	      	}
   },
   tooltip : {
     trigger: 'item'

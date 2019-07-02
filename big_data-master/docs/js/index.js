@@ -130,7 +130,13 @@ var optionBar1 = {
         {
             type : 'category',
             data : year_P,
-            max: 8
+            max: 8,
+            axisLine:{
+			        lineStyle:{
+			            color:'white',
+			            width:2
+			        }
+			   },
         }
     ],
     yAxis : [
@@ -146,7 +152,13 @@ var optionBar1 = {
           interval: 30,
           min: 0,
           max: 150,
-          position: "left"
+          position: "left",
+          axisLine:{
+			        lineStyle:{
+			            color:'#F8F8FF',
+			            width:2
+			        }
+			   },
         }
     ],
     series : [
@@ -154,6 +166,7 @@ var optionBar1 = {
             name:'小说发表量',
             type:'bar',
             data:Y_amount,
+            color:'#87CEFA'
 
         },
     ]
@@ -177,7 +190,8 @@ var optionBar2 = {
     axisLine: {
       show: false,
       lineStyle: {
-        color: "#07bffb"
+        color: "white",
+        width:2
       }
     },
     axisTick: {
@@ -194,7 +208,8 @@ var optionBar2 = {
       axisLine: {
         show: false,
         lineStyle: {
-          color: "#07bffb"
+          color: "white",
+          width:2
         }
       },
       splitLine: {

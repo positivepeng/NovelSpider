@@ -24,7 +24,7 @@ var mydata = [
 ];
 
 var option = {
-  backgroundColor: '#c4dee4',
+ 
   title: {
     text: '全部读者城市分布图',
     x:'center'
@@ -36,12 +36,13 @@ var option = {
     show : false,
     x: 'left',
     y: 'bottom',
+       
     splitList: [
       {start: 500, end:600},{start: 400, end: 500},
       {start: 300, end: 400},{start: 200, end: 300},
       {start: 100, end: 200},{start: 0, end: 100},
     ],
-    color: ['#6F798D', '#034DE4', '#27E9FD','#27E9FD', '#0E7DEB', '#034DE4']
+    color: ['#6F798D', '#034DE4', '#27E9FD','#27E9FD', '#0E7DEB', '#034DE4','#808080']
   },
   series: [{
     name: '读者数目',

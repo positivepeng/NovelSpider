@@ -67,11 +67,6 @@ var myChart = echarts.init(dom);
 var app = {};
 option = null;
 option = {
-    title : {
-        text: '某站点用户访问来源',
-        subtext: '纯属虚构',
-        x:'center'
-    },
     tooltip : {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -79,7 +74,10 @@ option = {
     legend: {
         orient: 'vertical',
         left: 'left',
-        data: ['张','李','王','孙','钱']
+        data: ['张','李','王','孙','钱'],
+        textStyle: {
+											 	color: 'white'  }
+
     },
     series : [
         {
@@ -87,6 +85,10 @@ option = {
             type: 'pie',
             radius : '55%',
             center: ['50%', '60%'],
+            inRange: {
+			color: ['#33ffff','']
+			
+		},
             data:[
                 {value:335, name:'张'},
                 {value:310, name:'李'},
@@ -98,7 +100,7 @@ option = {
                 emphasis: {
                     shadowBlur: 10,
                     shadowOffsetX: 0,
-                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    shadowColor: 'red'
                 }
             }
         }
@@ -114,26 +116,28 @@ if (option && typeof option === "object") {
 						</div>
 					</div>
 				</div>
-                <div class="middle-map fl">
-		<div class="map-wrap" style="position: absolute;text-align: center;height: 1000px;top:1px;width: 1500px">
-						<h3 class="clearfix">
-            <dl class="fl" style="text-align:center; margin-left: 20px;" >
-              <dt style="font-size: 18px;">姓氏</dt>
+               <div class="middle-map fl" style="
+    right: 5px;">
+					<div class="map-wrap" style="position: absolute;text-align: center;height: 1000px;top:1px;width: 700px">
+						<h3 class="clearfix" style="top: 5px;">
+            <dl class="fl" style="text-align:center; margin-left: 20px;width: 185.9375px" >
+              <dt style="font-size: 14px;">姓氏</dt>
                  <select name="firstname" id="valueX" class="unit-pc">
+
                     <option value="0">一字</option>
                     <option value="1">二字</option>
 
                 </select>
              </dl>
-            <dl class="fl" style="text-align:center; margin-left: 20px;">
-              <dt style="font-size: 18px;">名字</dt>
+            <dl class="fl" style="text-align:center; margin-left: 20px;width: 185.9375px">
+              <dt style="font-size: 14px;">名字</dt>
                 <select name="lastname" id="valueT" class="unit-pc">
                     <option value="0">一字</option>
                     <option value="1">二字</option>
                 </select>
             </dl>
-            <dl class="fl" style="text-align:center;margin-left: 20px;">
-              <dt style="font-size: 18px;">是否指定姓氏</dt>
+            <dl class="fl" style="text-align:center;margin-left: 20px;width: 190px">
+              <dt style="font-size: 14px;">是否指定姓氏</dt>
                 <select name="inname" id="valueT" class="unit-pc">
                     <option value="0">是</option>
                     <option value="1">否</option>
@@ -144,74 +148,116 @@ if (option && typeof option === "object") {
            
   
           </h3>
-          <div id="nameshow" style="width: 100%;top:120px;left:80px;right: 40px;position: absolute;">
-         <dl class="fl" style=" font-size:16px;text-align:center; margin-left: 20px;" >
-           <!--<p style="font-family:'微软雅黑'">
-                                              请输入指定的姓氏：   </p>-->                                           
-                                              
-         <span class="input input--chisato"> 
+						<div id="nameshow" style="width: 100%;top: 90px;left: 55px;right: 0px;position: absolute;">
+							<dl class="fl" style=" font-size:16px;text-align:center; margin-left: 20px;">
+								<!--<p style="font-family:'微软雅黑'">
+                                              请输入指定的姓氏：   </p>-->
+
+								<span class="input input--chisato" style="
+    margin-top: 0px;
+    margin-bottom: 0px;"> 
          	
                 <input class="input__field input__field--chisato" id ="truename" style="margin-top: 10px;padding-top: 10px;">
          	    <label class="input__label input__label--chisato" for="input-1">
 						<span class="input__label-content input__label-content--chisato" data-content="指定的姓">指定的姓</span>
-				</label>
-         </span>    
-         
-         </dl>
-            <dl class="fl" style="font-size:16px;text-align:center; margin-left: 40px;">  
-            <span class="input input--chisato">
+								</label>
+								</span>
+
+							</dl>
+							<dl class="fl" style="font-size:16px;text-align:center; margin-left: 40px;">
+								<span class="input input--chisato" style="
+    margin-top: 0px;
+    margin-bottom: 0px;">
         	<input  class="input__field input__field--chisato"  type="text" id ="truenumber"style="margin-top: 10px;padding-top: 10px;">  
         	<label class="input__label input__label--chisato" for="input-2">
 						<span class="input__label-content input__label-content--chisato" data-content="姓名的数量">返回姓名数量</span>
-				</label>
-			</span>  
-            </dl>
-            <dl class="fl" style="font-size:16px;text-align:center;margin-left: 20px;">    			
-           		<button type="button" id = "getname" class="getname butn1" style="
-    margin-top: 35px;
-    margin-left: 20px;
-">获取名字</button>
-            </dl>
-            <div style="margin-top: 120px;margin-left: 0px;width: 600px;">
-  				<p style="font-size: 18px;font-family: '微软雅黑';">亲亲，想要什么样的主角名，这里都有哦！</p>
-	
-							<input type="text" id="getnamenow">
-				
-			</div>
+								</label>
+								</span>
+							</dl>
+							<dl class="fl" style="font-size:16px;text-align:center;margin-left: 40px;">
+								<button type="button" id="getname" class="getname butn1">获取名字</button>
+							</dl>
+							<div style="margin-top: 90px;margin-left: 0px;width: 600px;">
+								<p style="font-size: 18px;font-family: '微软雅黑';">你的名字</p>
+
+								<input type="text" id="getnamenow" style="
+    height: 150px;
+    width: 454px;
+    margin-top:15px;
+">
+
+							</div>
+						</div>
 					</div>
-					</div>
-                  
 
 					<!--<div id="mapset" style="width: 80%;height: 500px;text-align:center;top:10px;position: absolute;">
             <span class="title-map" style="text-align:center;position: absolute">名字生成器</span>
          </div>-->
-	
+
 				</div>
-				<div class="aside-right fl">
+
+				<div class="aside-right fl" style="
+    left: 10px;">
                 <h3>预测推荐</h3>
-					<div class="public-opinion right-top" id="guesyou" style="z-index:10;">
-						<div>
-                        <p>&nbsp;</p>
-                        	<dt style="font-size:10px">选择标签一
-                <select name="inname" id="valueT" class="unit-pc">
-                    <option value="0">是</option>
-                    <option value="1">否</option>
-                </select></dt>
-                <p>&nbsp;</p>
-                        	<dt style="font-size:10px">选择标签二
-                <select name="inname" id="valueT" class="unit-pc">
-                    <option value="0">是</option>
-                    <option value="1">否</option>
-                </select></dt>
-                <p>&nbsp;</p>
-                        	<dt style="font-size:10px">选择标签三
-                <select name="inname" id="valueT" class="unit-pc">
-                    <option value="0">是</option>
-                    <option value="1">否</option>
-                </select></dt>
-                        </div> 
+					<div class="public-opinion right-top" id="guesyou" style="z-index:10;height: 230px;">
+						<script>
+							var dom = document.getElementById("guesyou");
+var mystraightChart = echarts.init(dom);
+var app = {};
+option = null;
+var option = {
+	dataset: {
+		source: [
+			['amount', 'year'],
+			[58212, '2013'],
+			[78254, '2014'],
+			[41032, '2015'],
+			[12755, '2016'],
+			[20145, '2017'],
+			[79146, '2018'],
+			[91852, '2019']
+		]
+	},
+	grid: {
+		containLabel: true
+	},
+	xAxis: {
+		name: 'amount',
+		axisLine:{
+			        lineStyle:{
+			            color:'#F8F8FF',
+			            width:2
+			        }
+			   },
+	},
+	yAxis: {
+		type: 'category',
+		axisLine:{
+			        lineStyle:{
+			            color:'#F8F8FF',
+			            width:2
+			        }
+			   },
+	},
+	
+	series: [{
+		type: 'bar',
+		encode: {
+			// Map the "amount" column to X axis.
+			x: 'amount',
+			// Map the "product" column to Y axis
+			y: 'year'
+		}
+	}]
+};;
+if(option && typeof option === "object") {
+	mystraightChart.setOption(option, true);
+}
+						</script>
 					</div>
-					<div class="logistics clearfix">
+					<div class="logistics clearfix" style="
+    height: 240px;
+">
 						<h3>热门标签</h3>
 						<div class="con">
 							<div  id="itemcloud" class="con-in active" style="height:100%;Z-index:10">
@@ -221,10 +267,7 @@ var myChart = echarts.init(dom);
 var app = {};
 option = null;
 option = {
-    title: {
-        text: '漏斗图',
-        subtext: '纯属虚构'
-    },
+    
     tooltip: {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c}%"
@@ -237,7 +280,10 @@ option = {
         }
     },
     legend: {
-        data: ['甜文','王侯将相','访问','咨询','订单']
+        data: ['甜文','王侯将相','访问','咨询','订单'],
+        textStyle: {
+											 	color: 'white'  }
+
     },
     series: [
         {

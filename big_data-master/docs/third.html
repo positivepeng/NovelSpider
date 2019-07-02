@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="css/second.css">
+		<link rel="stylesheet" href="css/second2.css">
 		<script src="js/jquery.min.js"></script>
         </script><script src="js/echarts.min.js"></script>  
 	   	<script src="js/china.js"></script>
@@ -54,55 +54,77 @@
 					<div class="top left-top">
 						<h3>同性文历年产量</h3>
 						<div id="gaycount" style="width: 100%; height: 80%;">
-							<script>
-								var dom = document.getElementById("gaycount");
+							<script>var dom = document.getElementById("gaycount");
 var mygayChart = echarts.init(dom);
 var app = {};
 option = null;
 var option = {
-    dataset: {
-        source: [
-            ['score', 'amount', 'year'],
-            [89.3, 58212, '2013'],
-            [57.1, 78254, '2014'],
-            [74.4, 41032, '2015'],
-            [50.1, 12755, '2016'],
-            [89.7, 20145, '2017'],
-            [68.1, 79146, '2018'],
-            [19.6, 91852, '2019']
-        ]
-    },
-    grid: {containLabel: true},
-    xAxis: {name: 'amount'},
-    yAxis: {type: 'category'},
-    visualMap: {
-        orient: 'horizontal',
-        left: 'center',
-        min: 10,
-        max: 100,
-        // Map the score column to color
-        dimension: 0,
-        inRange: {
-            color: ['#D7DA8B', '#E15457']
-        }
-    },
-    series: [
-        {
-            type: 'bar',
-            encode: {
-                // Map the "amount" column to X axis.
-                x: 'amount',
-                // Map the "product" column to Y axis
-                y: 'year'
-            }
-        }
-    ]
-};
-;
-if (option && typeof option === "object") {
-    mygayChart.setOption(option, true);
-}
-							</script>
+	title: {
+     
+      		backgroundColor: 'white'       
+ 
+       	},
+	dataset: {
+		source: [
+			['score', 'amount', 'year'],
+			[89.3, 58212, '2013'],
+			[57.1, 78254, '2014'],
+			[74.4, 41032, '2015'],
+			[50.1, 12755, '2016'],
+			[89.7, 20145, '2017'],
+			[68.1, 79146, '2018'],
+			[19.6, 91852, '2019']
+		]
+	},
+	grid: {
+		containLabel: true
+	},
+	xAxis: {
+		name: 'amount',
+		axisLine:{
+			        lineStyle:{
+			            color:'#ccff99',
+			            width:2
+			        }
+			   },
+	},
+	yAxis: {
+		type: 'category',
+		axisLine:{
+			        lineStyle:{
+			            color:'#ccff99',
+			            width:2
+			        }
+			   },
+	},
+	visualMap: {
+		orient: 'horizontal',
+		textStyle: {
+	        	fontWeight: 'normal',            
+	        	color: 'white'
+	      	},
+		left: 'center',
+		min: 10,
+		max: 100,
+		// Map the score column to color
+		dimension: 0,
+		inRange: {
+			color: ['#33ffff', '#3300ff']
+		}
+	},
+	series: [{
+		type: 'bar',
+		encode: {
+			// Map the "amount" column to X axis.
+			x: 'amount',
+			// Map the "product" column to Y axis
+			y: 'year'
+		}
+	}]
+};;
+if(option && typeof option === "object") {
+	mygayChart.setOption(option, true);
+}</script>
                             
                             
 						</div>
@@ -110,56 +132,73 @@ if (option && typeof option === "object") {
 					</div>
 					<div class="bottom left-bottom">
 						<h3>非同性文历年产量</h3>
-						<div id="straightcount" style="width: 100%; height: 100%;">
-							<script>
-								var dom = document.getElementById("straightcount");
+						<div id="straightcount" style="width: 100%; height: 80%;">
+							<script>var dom = document.getElementById("straightcount");
 var mystraightChart = echarts.init(dom);
 var app = {};
 option = null;
 var option = {
-    dataset: {
-        source: [
-            ['score', 'amount', 'year'],
-            [89.3, 58212, '2013'],
-            [57.1, 78254, '2014'],
-            [74.4, 41032, '2015'],
-            [50.1, 12755, '2016'],
-            [89.7, 20145, '2017'],
-            [68.1, 79146, '2018'],
-            [19.6, 91852, '2019']
-        ]
-    },
-    grid: {containLabel: true},
-    xAxis: {name: 'amount'},
-    yAxis: {type: 'category'},
-    visualMap: {
-        orient: 'horizontal',
-        left: 'center',
-        min: 10,
-        max: 100,
-        // Map the score column to color
-        dimension: 0,
-        inRange: {
-            color: ['#D7DA8B', '#E15457']
-        }
-    },
-    series: [
-        {
-            type: 'bar',
-            encode: {
-                // Map the "amount" column to X axis.
-                x: 'amount',
-                // Map the "product" column to Y axis
-                y: 'year'
-            }
-        }
-    ]
-};
-;
-if (option && typeof option === "object") {
-    mystraightChart.setOption(option, true);
-}
-							</script>
+	dataset: {
+		source: [
+			['score', 'amount', 'year'],
+			[89.3, 58212, '2013'],
+			[57.1, 78254, '2014'],
+			[74.4, 41032, '2015'],
+			[50.1, 12755, '2016'],
+			[89.7, 20145, '2017'],
+			[68.1, 79146, '2018'],
+			[19.6, 91852, '2019']
+		]
+	},
+	grid: {
+		containLabel: true
+	},
+	xAxis: {
+		name: 'amount',
+		axisLine:{
+			        lineStyle:{
+			            color:'#F8F8FF',
+			            width:2
+			        }
+			   },
+	},
+	yAxis: {
+		type: 'category',
+		axisLine:{
+			        lineStyle:{
+			            color:'#F8F8FF',
+			            width:2
+			        }
+			   },
+	},
+	visualMap: {
+		orient: 'horizontal',
+		textStyle: {
+	        	fontWeight: 'normal',            
+	        	color: 'white'
+	      	},
+		left: 'center',
+		min: 10,
+		max: 100,
+		// Map the score column to color
+		dimension: 0,
+		inRange: {
+			color: ['#33ffff', '#3300ff']
+		}
+	},
+	series: [{
+		type: 'bar',
+		encode: {
+			// Map the "amount" column to X axis.
+			x: 'amount',
+			// Map the "product" column to Y axis
+			y: 'year'
+		}
+	}]
+};;
+if(option && typeof option === "object") {
+	mystraightChart.setOption(option, true);
+}</script>
 						</div>
 					</div>
 				</div>
@@ -175,7 +214,7 @@ if (option && typeof option === "object") {
 					<!--<div id="mapset" style="width: 80%;height: 500px;text-align:center;top:10px;position: absolute;">
             <span class="title-map" style="text-align:center;position: absolute">名字生成器</span>
          </div>-->
-					<span class="title-map">同性恋城市分布图</span>
+					
 					<div id="SexMap" style="width: 100%;height: 100%;"></div>
 				</div>
 
