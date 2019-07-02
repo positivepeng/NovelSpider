@@ -115,39 +115,65 @@ $(function() {
   bottomSpan.css("line-height", bottomSpanH + "px");
 });
 
-//   // 柱形折线图
+//各年份小说发表量排行图
 
-var trendBar1 = echarts.init(document.getElementById("trendBar1"));
+var Year_PublishNum = echarts.init(document.getElementById("Year_PublishNum"));
+var year_P = ["2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"];
+var Y_amount = [2.0, 4.9, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3];
 
-var optionBar = {
+var optionBar1 = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : year_P,
+            max: 8
+        }
+    ],
+    yAxis : [
+        {
+          name: "发表量(/万)",
+          type : 'value',
+          splitLine: {
+            show: false
+          },
+          axisTick: {
+            show: false
+          },
+          interval: 30,
+          min: 0,
+          max: 150,
+          position: "left"
+        }
+    ],
+    series : [
+        {
+            name:'小说发表量',
+            type:'bar',
+            data:Y_amount,
+
+        },
+    ]
+};
+Year_PublishNum.setOption(optionBar1);
+
+// 2018年小说走势图
+
+var NovelDevelopment = echarts.init(document.getElementById("NovelDevelopment"));
+
+var month = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
+var Publish_Amount = [2.5, 5.4, 6.4, 4.4, 5.7, 11, 12, 10, 8, 14, 18, 19];
+
+var optionBar2 = {
   grid: {
     top: 50,
     bottom: "20%"
   },
-  legend: {
-    data: ["销售码洋", "同比增长"],
-    right: "5%",
-    itemWidth: 18,
-    itemHeight: 12,
-    textStyle: {
-      color: "#fff"
-    }
-  },
   xAxis: {
-    data: [
-      "1月",
-      "2月",
-      "3月",
-      "4月",
-      "5月",
-      "6月",
-      "7月",
-      "8月",
-      "9月",
-      "10月",
-      "11月",
-      "12月"
-    ],
+    data: month,
     axisLine: {
       show: false,
       lineStyle: {
@@ -157,13 +183,14 @@ var optionBar = {
     axisTick: {
       show: false
     },
+      max: 11.5,
     axisLabel: {
       interval: 0
     }
   },
   yAxis: [
     {
-      name: "码洋(/千万)",
+      name: "发布量(/万)",
       axisLine: {
         show: false,
         lineStyle: {
@@ -181,31 +208,11 @@ var optionBar = {
       max: 20,
       position: "left"
     },
-    {
-      name: "同比增长(%)",
-      max: 100,
-      min: 0,
-      axisLabel: {
-        formatter: "{value}"
-      },
-      axisLine: {
-        show: false,
-        lineStyle: {
-          color: "#07bffb"
-        }
-      },
-      splitLine: {
-        show: false
-      },
-      axisTick: {
-        show: false
-      },
-      position: "right"
-    }
+
   ],
   series: [
     {
-      name: "销售码洋",
+      name: "小说发布量",
       type: "bar",
       barWidth: "40%",
       barGap: 5,
@@ -230,17 +237,8 @@ var optionBar = {
           )
         }
       },
-      data: [2.5, 5.4, 6.4, 4.4, 5.7, 11, 12, 10, 8, 14, 18, 19]
+      data: Publish_Amount,
     },
-    {
-      name: "同比增长",
-      type: "line",
-      itemStyle: {
-        color: "#fff"
-      },
-      yAxisIndex: 1,
-      data: [10, 8, 36, 12, 24, 16, 48, 32, 18, 14, 66, 70]
-    }
   ]
 };
-trendBar1.setOption(optionBar);
+NovelDevelopment.setOption(optionBar2);
