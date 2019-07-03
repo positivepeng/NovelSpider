@@ -27,7 +27,12 @@ var option = {
  
   title: {
     text: '全部读者城市分布图',
-    x:'center'
+    x:'center',
+    textStyle: {
+	        	fontWeight: 'normal',  
+	        	color: '#F0F8FF'
+	      	}
+    
   },
   tooltip : {
     trigger: 'item'
@@ -42,7 +47,9 @@ var option = {
       {start: 300, end: 400},{start: 200, end: 300},
       {start: 100, end: 200},{start: 0, end: 100},
     ],
-    color: ['#6F798D', '#034DE4', '#27E9FD','#27E9FD', '#0E7DEB', '#034DE4','#808080']
+    inRange: {
+			color: ['#33ffff', '#3300ff']
+		}
   },
   series: [{
     name: '读者数目',

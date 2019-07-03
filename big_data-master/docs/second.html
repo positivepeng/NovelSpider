@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="css/second.css">
 		<script src="js/jquery.min.js"></script>
 		<script src="js/echarts-gl.js"></script>
-        <script src="js/echarts.min.js"></script>
+		<script src="js/echarts.min.js"></script>
 		<title>rocket 名字生成器</title>
 	</head>
 
@@ -59,64 +59,76 @@
 					</div>
 					<div class="bottom left-bottom">
 						<h3>最受欢迎主角姓</h3>
-						<div  id="majorname" style="width: 100%; height: 80%;">
-                       		
-                            <script>
+						<div id="majorname" style="width: 100%; height: 80%;">
+
+							<script>
 								var dom = document.getElementById("majorname");
-var myChart = echarts.init(dom);
-var app = {};
-option = null;
-option = {
-    tooltip : {
-        trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
-    },
-    legend: {
-        orient: 'vertical',
-        left: 'left',
-        data: ['张','李','王','孙','钱'],
-        textStyle: {
-											 	color: 'white'  }
+								var myChart = echarts.init(dom);
+								var app = {};
+								option = null;
+								option = {
+									tooltip: {
+										trigger: 'item',
+										formatter: "{a} <br/>{b} : {c} ({d}%)"
+									},
+									legend: {
+										orient: 'vertical',
+										left: 'left',
+										data: ['张', '李', '王', '孙', '钱'],
+										textStyle: {
+											color: 'white'
+										}
 
-    },
-    series : [
-        {
-            name: '访问来源',
-            type: 'pie',
-            radius : '55%',
-            center: ['50%', '60%'],
-            inRange: {
-			color: ['#33ffff','']
-			
-		},
-            data:[
-                {value:335, name:'张'},
-                {value:310, name:'李'},
-                {value:234, name:'王'},
-                {value:135, name:'孙'},
-                {value:1548, name:'钱'}
-            ],
-            itemStyle: {
-                emphasis: {
-                    shadowBlur: 10,
-                    shadowOffsetX: 0,
-                    shadowColor: 'red'
-                }
-            }
-        }
-    ]
-};
+									},
+									series: [{
+										name: '访问来源',
+										type: 'pie',
+										radius: '55%',
+										center: ['50%', '60%'],
+										inRange: {
+											color: ['#33ffff', '']
 
-if (option && typeof option === "object") {
-    myChart.setOption(option, true);
-}
+										},
+										data: [{
+												value: 335,
+												name: '张'
+											},
+											{
+												value: 310,
+												name: '李'
+											},
+											{
+												value: 234,
+												name: '王'
+											},
+											{
+												value: 135,
+												name: '孙'
+											},
+											{
+												value: 1548,
+												name: '钱'
+											}
+										],
+										itemStyle: {
+											emphasis: {
+												shadowBlur: 10,
+												shadowOffsetX: 0,
+												shadowColor: 'red'
+											}
+										}
+									}]
+								};
+
+								if(option && typeof option === "object") {
+									myChart.setOption(option, true);
+								}
 							</script>
-                            
-							
+
 						</div>
 					</div>
 				</div>
-               <div class="middle-map fl" style="
+				<div class="middle-map fl" style="
     right: 5px;">
 					<div class="map-wrap" style="position: absolute;text-align: center;height: 1000px;top:1px;width: 700px">
 						<h3 class="clearfix" style="top: 5px;">
@@ -138,7 +150,7 @@ if (option && typeof option === "object") {
             </dl>
             <dl class="fl" style="text-align:center;margin-left: 20px;width: 190px">
               <dt style="font-size: 14px;">是否指定姓氏</dt>
-                <select name="inname" id="valueT" class="unit-pc">
+                <select name="inname" id="valueC" class="unit-pc">
                     <option value="0">是</option>
                     <option value="1">否</option>
                 </select>
@@ -180,11 +192,8 @@ if (option && typeof option === "object") {
 							<div style="margin-top: 90px;margin-left: 0px;width: 600px;">
 								<p style="font-size: 18px;font-family: '微软雅黑';">你的名字</p>
 
-								<input type="text" id="getnamenow" style="
-    height: 150px;
-    width: 454px;
-    margin-top:15px;
-">
+								<textarea type="text" id="getnamenow" style=" height: 150px;    width: 454px;    margin-top:15px;
+"></textarea>
 
 							</div>
 						</div>
@@ -198,7 +207,7 @@ if (option && typeof option === "object") {
 
 				<div class="aside-right fl" style="
     left: 10px;">
-                <h3>预测推荐</h3>
+					<h3>预测推荐</h3>
 					<div class="public-opinion right-top" id="guesyou" style="z-index:10;height: 230px;">
 						<script>
 							var dom = document.getElementById("guesyou");
@@ -253,6 +262,40 @@ var option = {
 if(option && typeof option === "object") {
 	mystraightChart.setOption(option, true);
 }
+
+//							var dom = document.getElementById("guesyou");
+//							var myguesChart = echarts.init(dom);
+//							$(document).ready(function() {
+//										getprodict();
+//									};
+//
+//									function getprodict() {
+//										$.ajax({
+//											type: "post",
+//											url: "/prodict",
+//											async: true,
+//											data: {},
+//											dataType: 'json',
+//											success: function(data) {
+//												var apppro = {
+//													itemname: [],
+//													socre: [],
+//												};
+//												apppro.itemname = data.itemname;
+//												apppro.socre = data.socre;
+//												var seriesdata = [];
+//												for(var i = 0; i < app3.name.length; i++) {
+//													var obj = new Object();
+//													obj.name = apppro.itemname[i];
+//													obj.value = apppro.socre[i];
+//													seriesdata[i] = obj;
+//												}
+//
+//												var app = {};
+												
+												
+
+									
 						</script>
 					</div>
 					<div class="logistics clearfix" style="
@@ -260,104 +303,133 @@ if(option && typeof option === "object") {
 ">
 						<h3>热门标签</h3>
 						<div class="con">
-							<div  id="itemcloud" class="con-in active" style="height:100%;Z-index:10">
+							<div id="itemcloud" class="con-in active" style="height:100%;Z-index:10">
 								<script>
 									var dom = document.getElementById("itemcloud");
-var myChart = echarts.init(dom);
-var app = {};
-option = null;
-option = {
-    
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b} : {c}%"
-    },
-    toolbox: {
-        feature: {
-            dataView: {readOnly: false},
-            restore: {},
-            saveAsImage: {}
-        }
-    },
-    legend: {
-        data: ['甜文','王侯将相','访问','咨询','订单'],
-        textStyle: {
-											 	color: 'white'  }
+									var myChart = echarts.init(dom);
+									var app = {};
+									option = null;
+									option = {
 
-    },
-    series: [
-        {
-            name: '预期',
-            type: 'funnel',
-            left: '10%',
-            width: '80%',
-            label: {
-                normal: {
-                    formatter: '{b}预期'
-                },
-                emphasis: {
-                    position:'inside',
-                    formatter: '{b}预期: {c}%'
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            itemStyle: {
-                normal: {
-                    opacity: 0.7
-                }
-            },
-            data: [
-                {value: 60, name: '甜文'},
-                {value: 40, name: '王侯将相'},
-                {value: 20, name: '订单'},
-                {value: 80, name: '点击'},
-                {value: 100, name: '展现'}
-            ]
-        },
-        {
-            name: '实际',
-            type: 'funnel',
-            left: '10%',
-            width: '80%',
-            maxSize: '80%',
-            label: {
-                normal: {
-                    position: 'inside',
-                    formatter: '{c}%',
-                    textStyle: {
-                        color: '#fff'
-                    }
-                },
-                emphasis: {
-                    position:'inside',
-                    formatter: '{b}实际: {c}%'
-                }
-            },
-            itemStyle: {
-                normal: {
-                    opacity: 0.5,
-                    borderColor: '#fff',
-                    borderWidth: 2
-                }
-            },
-            data: [
-                {value: 30, name: '访问'},
-                {value: 10, name: '咨询'},
-                {value: 5, name: '订单'},
-                {value: 50, name: '点击'},
-                {value: 80, name: '展现'}
-            ]
-        }
-    ]
-};
-;
-if (option && typeof option === "object") {
-    myChart.setOption(option, true);
-}
+										tooltip: {
+											trigger: 'item',
+											formatter: "{a} <br/>{b} : {c}%"
+										},
+										toolbox: {
+											feature: {
+												dataView: {
+													readOnly: false
+												},
+												restore: {},
+												saveAsImage: {}
+											}
+										},
+										legend: {
+											data: ['甜文', '王侯将相', '访问', '咨询', '订单'],
+											textStyle: {
+												color: 'white'
+											}
+
+										},
+										series: [{
+												name: '预期',
+												type: 'funnel',
+												left: '10%',
+												width: '80%',
+												label: {
+													normal: {
+														formatter: '{b}预期'
+													},
+													emphasis: {
+														position: 'inside',
+														formatter: '{b}预期: {c}%'
+													}
+												},
+												labelLine: {
+													normal: {
+														show: false
+													}
+												},
+												itemStyle: {
+													normal: {
+														opacity: 0.7
+													}
+												},
+												data: [{
+														value: 60,
+														name: '甜文'
+													},
+													{
+														value: 40,
+														name: '王侯将相'
+													},
+													{
+														value: 20,
+														name: '订单'
+													},
+													{
+														value: 80,
+														name: '点击'
+													},
+													{
+														value: 100,
+														name: '展现'
+													}
+												]
+											},
+											{
+												name: '实际',
+												type: 'funnel',
+												left: '10%',
+												width: '80%',
+												maxSize: '80%',
+												label: {
+													normal: {
+														position: 'inside',
+														formatter: '{c}%',
+														textStyle: {
+															color: '#fff'
+														}
+													},
+													emphasis: {
+														position: 'inside',
+														formatter: '{b}实际: {c}%'
+													}
+												},
+												itemStyle: {
+													normal: {
+														opacity: 0.5,
+														borderColor: '#fff',
+														borderWidth: 2
+													}
+												},
+												data: [{
+														value: 30,
+														name: '访问'
+													},
+													{
+														value: 10,
+														name: '咨询'
+													},
+													{
+														value: 5,
+														name: '订单'
+													},
+													{
+														value: 50,
+														name: '点击'
+													},
+													{
+														value: 80,
+														name: '展现'
+													}
+												]
+											}
+										]
+									};;
+									if(option && typeof option === "object") {
+										myChart.setOption(option, true);
+									}
 								</script>
 							</div>
 							<div class="con-in">
@@ -619,43 +691,41 @@ if (option && typeof option === "object") {
 				<span class="line3"></span>
 			</div>
 		</div>
-        
-                                      <script>
-									$(function($){
-	$("#getname").on("click",function(e)
-	{
-		//alert("welcome!");
-		var firstname= $("firstname").val();
-		var lastname= $("lastname").val();
-		var inname= $("inname").val();
-		var truename= $("truename").val();
-		var truenumber= $("truenumber").val();
-		$.ajax({
-			url:'/test/login',
-			type:'post',
-			data:{
-				firstname:firstname,
-				lastname:lastname,
-				inname:inname,
-				truename:truename,
-				truenumber:truenumber				
-			},
-			error: function(){
-				alert("error");
-			},
-			success:function(res)
-			{
-				if(res==0)
-					window.location.herf="index.html";
-				else
-					alert("用户名密码验证失败，请重新登陆！");
-			}
-			
-		});
-		
-	});
-});
-									</script>						
+
+		<script>
+			$(function($) {
+				$("#getname").on("click", function(e) {
+					//alert("welcome!");
+					var firstname = $("#valueX option:selected").val();
+					var lastname = $("valueT option:selected").val();
+					var inname = $("valueC option:selected").val();
+
+					var truename = $("truename").val();
+					var truenumber = $("truenumber").val();
+					$.ajax({
+						url: '/test/login',
+						type: 'post',
+						dataType: 'JSON',
+						data: {
+							firstname: firstname,
+							lastname: lastname,
+							inname: inname,
+							truename: truename,
+							truenumber: truenumber
+						},
+						error: function() {
+							alert("error");
+						},
+						success: function(result) {
+							String MyStr = result.Replace(" <br>","/n");
+							$('#getnamenow').val(MyStr); //往input框里传值
+						}
+
+					});
+
+				});
+			});
+		</script>
 	</body>
 
 </html>
